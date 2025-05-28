@@ -37,6 +37,18 @@ Each truck in the simulation can have the following properties:
 ### Step 1: Activate Static Countdown
 
 If a truck is static and doesn't already have an active countdown, it checks **how many empty spaces are ahead** of it. If there are between **2 and 5 consecutive empty positions**, it activates a countdown to become unstuck.
-
-```python
 required_spaces = random.randint(2, 5)
+---
+### Step 2: Countdown Timer
+Static trucks with an active countdown tick down their static_remaining value until it reaches 0. When this happens:
+
+The truck is marked as dynamic (is_static = False)
+
+Its color changes to orange (ready to move)
+---
+### Step 3: Movement Blocking
+Movement is blocked for trucks that are behind the first static truck whose countdown is still active, preventing pileups.
+---
+
+### Step 4: Movement Logic
+Dynamic trucks move forward to the nearest available empty spot ahead of them, unless they're blocked. If they reach position == 0 (the border), they are removed from the queue.
