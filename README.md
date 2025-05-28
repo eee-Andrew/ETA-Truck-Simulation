@@ -38,7 +38,7 @@ Each truck in the simulation can have the following properties:
 
 If a truck is static and doesn't already have an active countdown, it checks **how many empty spaces are ahead** of it. If there are between **2 and 5 consecutive empty positions**, it activates a countdown to become unstuck.
 required_spaces = random.randint(2, 5)
-------------------------------------
+
 ### Step 2: Countdown Timer
 Static trucks with an active countdown tick down their static_remaining value until it reaches 0. When this happens:
 
