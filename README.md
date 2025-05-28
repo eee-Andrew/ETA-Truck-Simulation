@@ -45,10 +45,10 @@ Static trucks with an active countdown tick down their static_remaining value un
 The truck is marked as dynamic (is_static = False)
 
 Its color changes to orange (ready to move)
----
+
 ### Step 3: Movement Blocking
 Movement is blocked for trucks that are behind the first static truck whose countdown is still active, preventing pileups.
----
+
 
 ### Step 4: Movement Logic
 Dynamic trucks move forward to the nearest available empty spot ahead of them, unless they're blocked. If they reach position == 0 (the border), they are removed from the queue.
